@@ -93,6 +93,10 @@ function App() {
 
   const imgRef = useRef<HTMLImageElement>(null);
 
+  const handlClick = () => {
+    showCroppedImage();
+  };
+
   return (
     <div>
       <h2>Загрузка аватарки</h2>
@@ -110,7 +114,7 @@ function App() {
           >
             <img ref={imgRef} src={upImg} width="300px" height="300px" />
           </ReactCrop>
-          <button onClick={() => showCroppedImage()}>Download</button>
+          <button onClick={handlClick}>Download</button>
         </>
       )}
       {cropedImage && <img src={cropedImage} />}
