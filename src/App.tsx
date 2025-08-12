@@ -34,10 +34,9 @@ function App() {
 
     const scaleX = image!.naturalWidth / image!.width;
     const scaleY = image!.naturalHeight / image!.height;
-    const pixelRatio = window.devicePixelRatio;
 
-    canvas.width = image!.width * pixelRatio;
-    canvas.height = image!.height * pixelRatio;
+    canvas.width = image!.width;
+    canvas.height = image!.height;
 
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.imageSmoothingQuality = "high";
@@ -52,17 +51,17 @@ function App() {
       crop.height * scaleY,
       0,
       0,
-      image!.width * pixelRatio,
-      image!.height * pixelRatio
+      image!.width,
+      image!.height
     );
 
     // круглая маска
     ctx.globalCompositeOperation = "destination-in";
     ctx.beginPath();
     ctx.arc(
-      (image!.width * pixelRatio) / 2,
-      (image!.height * pixelRatio) / 2,
-      (image!.width * pixelRatio) / 2,
+      image!.width / 2,
+      image!.height / 2,
+      image!.width / 2,
       0,
       2 * Math.PI
     );
