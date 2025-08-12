@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import ReactCrop, { type Crop } from "react-image-crop";
+import { useState, useRef } from "react";
+import ReactCrop, { type Crop, type PixelCrop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
 function App() {
@@ -97,6 +97,10 @@ function App() {
     showCroppedImage();
   };
 
+  const handleCropChange = (c: PixelCrop) => {
+    setCrop(c);
+  };
+
   return (
     <div>
       <h2>Загрузка аватарки</h2>
@@ -105,7 +109,7 @@ function App() {
         <>
           <ReactCrop
             crop={crop}
-            onChange={(c) => setCrop(c)}
+            onChange={handleCropChange}
             aspect={1}
             circularCrop
             keepSelection
