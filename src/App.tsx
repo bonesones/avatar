@@ -84,7 +84,7 @@ function App() {
   const showCroppedImage = async () => {
     try {
       const croppedImage = await getCroppedImage();
-
+      console.log(croppedImage)
       setCroppedImage(croppedImage);
     } catch (e) {
       console.log(e);
